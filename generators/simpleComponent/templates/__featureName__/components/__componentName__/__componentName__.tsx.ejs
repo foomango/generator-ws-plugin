@@ -1,0 +1,17 @@
+import React from 'react'
+import classNames from 'classnames'
+
+import { getPrefixCls } from '../../style/classname'
+import { <%= componentName %>Props } from './interfaces'
+
+import './style/index.scss'
+
+const prefixCls = getPrefixCls('<%= include('../../../../../className.ejs', { name: componentName}) -%>')
+
+const <%= componentName %>: React.FC<<%= componentName %>Props> = ({
+  className,
+}) => {
+  return <div className={classNames(prefixCls, className)}>Todo:</div>
+}
+
+export default <%= componentName %>

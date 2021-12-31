@@ -1,0 +1,12 @@
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+
+import <%= componentName %> from '.'
+
+describe('<%= componentName %>', () => {
+  it('should render Todo', async () => {
+    render(<<%= componentName %> />)
+    const todo = await screen.findByText(/todo/i)
+    expect(todo).toBeVisible()
+  })
+})

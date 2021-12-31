@@ -1,0 +1,32 @@
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import { Provider } from 'react-redux'
+
+import <%= componentName %> from '.'
+import WebBrowserEnv from '../../../../env/WebBrowser'
+import { setupMocks } from './mocks/setup-mocks'
+import { createStore } from '../../mocks/create-store'
+
+describe('<%= componentName %>', () => {
+  let env: WebBrowserEnv
+  let store: any
+
+  const MockContainer = (props: any) => {
+    return (
+      <Provider store={store}>
+        <<%= componentName %> {...props} />
+      </Provider>
+    )
+  }
+
+  beforeAll(() => {
+    env = setupMocks().env
+    store = createStore()
+  })
+
+  it('should render name1 cell', async () => {
+    render(<MockContainer env={env} />)
+    const todo = await screen.findByRole('gridcell', { name: /name1/i })
+    expect(todo).toBeVisible()
+  })
+})

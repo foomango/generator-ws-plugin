@@ -1,0 +1,17 @@
+import React from 'react'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Meta } from '@storybook/react'
+
+import <%= componentName %> from '.'
+
+export default {
+  title: '<%= featureName %>/<%= componentName %>',
+  component: <%= componentName %>,
+  decorators: [
+    (story: () => any) => <div style={{ height: 800 }}>{story()}</div>,
+  ],
+} as Meta
+
+export const Primary = () => {
+  return <<%= componentName %> className="redux-component" />
+}

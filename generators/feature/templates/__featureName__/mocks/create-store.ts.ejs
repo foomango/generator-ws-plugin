@@ -1,0 +1,33 @@
+import { combineReducers } from 'redux'
+import { configureStore } from '@reduxjs/toolkit'
+import createSagaMiddleware from 'redux-saga'
+import { all } from 'redux-saga/effects'
+
+import <%= featureCamelName %> from '../store'
+import <%= featureCamelName %>Sagas from '../sagas'
+import { RootState } from '../store/root/RootState'
+
+const sagaMiddleware = createSagaMiddleware()
+
+const rootReducer = combineReducers({
+  <%= featureCamelName %>,
+})
+
+function* rootSaga() {
+  yield all(<%= featureCamelName %>Sagas.map((saga) => saga()))
+}
+
+export const createStore = (initialState: RootState = undefined) => {
+  const middleware = [sagaMiddleware]
+
+  const store = configureStore({
+    reducer: rootReducer,
+    preloadedState: initialState,
+    middleware,
+    devTools: true,
+  })
+
+  sagaMiddleware.run(rootSaga)
+
+  return store
+}

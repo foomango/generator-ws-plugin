@@ -1,0 +1,13 @@
+import { getPrefixCls } from './classname'
+
+describe('classname', () => {
+  describe('getPrefixCls()', () => {})
+
+  it('should return "mstr-rc-<%= featureClass %>-foo"', () => {
+    expect(getPrefixCls('foo')).toEqual('mstr-rc-<%= featureClass %>-foo')
+  })
+
+  it('should return "bar-foo"', () => {
+    expect(getPrefixCls('foo', 'bar')).toEqual('bar-foo')
+  })
+})

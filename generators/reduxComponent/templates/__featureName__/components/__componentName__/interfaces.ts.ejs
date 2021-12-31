@@ -1,0 +1,8 @@
+import { PropsFromRedux } from './connector'
+
+export interface Base<%= componentName %>Props {
+  className?: string
+}
+
+export type <%= componentName %>Props = Base<%= componentName %>Props &
+  Partial<PropsFromRedux>

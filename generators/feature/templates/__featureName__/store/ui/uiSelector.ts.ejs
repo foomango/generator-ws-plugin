@@ -1,0 +1,8 @@
+import { createSelector } from '@reduxjs/toolkit'
+
+import { select<%= featureName%> } from '../<%= featureCamelName%>/<%= featureCamelName%>Selector'
+
+export const selectUi = createSelector(
+  select<%= featureName%>,
+  (<%= featureCamelName%>) => <%= featureCamelName%>.ui
+)

@@ -1,0 +1,58 @@
+import React from 'react'
+import classNames from 'classnames'
+import { ReactWsGrid } from '@mstr/react-ws-grid'
+import { cloneDeep } from 'lodash'
+import type { GridReadyEvent } from 'ag-grid-community'
+
+import { getPrefixCls } from '../../style/classname'
+import { <%= componentName %>Props } from './interfaces'
+import { connector } from './connector'
+import { getColumnDefs, defaultColDef } from './columns'
+import { i18nextInstance } from '../../../migration'
+
+import '@mstr/react-ws-grid/es/styles.scss'
+import './style/index.scss'
+
+const prefixCls = getPrefixCls('<%= include('../../../../../className.ejs', { name: componentName}) -%>')
+
+export const  <%= componentName %>: React.FC<<%= componentName %>Props> = ({
+  className,
+  height,
+  onGridReady,
+}) => {
+  const handleGridReady = React.useCallback(
+    (event: GridReadyEvent) => {
+      if (onGridReady) {
+        onGridReady(event)
+      }
+    },
+    [onGridReady]
+  )
+
+  const data = [
+    { name: 'name1', value: 'value1' },
+    { name: 'name2', value: 'value2' },
+    { name: 'name3', value: 'value3' },
+  ]
+
+  return (
+    <div className={classNames(prefixCls, className)} style={{ height }}>
+      <ReactWsGrid
+        defaultColDef={defaultColDef}
+        columnDefs={getColumnDefs()}
+        useToolbar
+        rowData={cloneDeep(data)}
+        frameworkComponents={{}}
+        onGridReady={handleGridReady}
+        locale={i18nextInstance.language}
+      />
+    </div>
+  )
+}
+
+<%= componentName %>.defaultProps = {
+  height: '100%',
+}
+
+export default connector(<%= componentName %>)
+

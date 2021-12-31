@@ -1,0 +1,8 @@
+import { takeLatest } from 'redux-saga/effects'
+
+import { todoHelper } from './<%= featureCamelName %>SagaHelpers'
+import { todo } from './reduxActions'
+
+export function* watchTodo() {
+  yield takeLatest(todo.type, todoHelper)
+}

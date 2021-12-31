@@ -1,0 +1,4 @@
+import type { RootState } from '../root/RootState'
+
+export const select<%= featureName %> = (state: RootState) =>
+  state.<%= featureCamelName %>

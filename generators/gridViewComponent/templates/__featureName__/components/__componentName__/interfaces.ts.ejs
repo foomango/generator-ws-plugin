@@ -1,0 +1,12 @@
+import type { GridReadyEvent } from 'ag-grid-community'
+
+import type { PropsFromRedux } from './connector'
+
+export interface Base<%= componentName %>Props {
+  className?: string
+  height?: string
+  onGridReady?: (event: GridReadyEvent) => void
+}
+
+export type <%= componentName %>Props = Base<%= componentName %>Props &
+  Partial<PropsFromRedux>

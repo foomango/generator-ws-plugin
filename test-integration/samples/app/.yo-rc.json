@@ -1,0 +1,7 @@
+{
+  "generator-ws-plugin": {
+    "promptValues": {
+      "featureName": "SubscriptionDelivery"
+    }
+  }
+}

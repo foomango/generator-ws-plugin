@@ -1,0 +1,22 @@
+import React from 'react'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { Meta } from '@storybook/react'
+
+import <%= componentName %> from '.'
+import { ReduxDecorator } from '../../mocks/decorators'
+import { setupMocks } from './mocks/setup-mocks'
+
+export default {
+  title: '<%= featureName %>/<%= componentName %>',
+  component: <%= componentName %>,
+  decorators: [
+    (story: () => any) => <div style={{ height: 800 }}>{story()}</div>,
+    ReduxDecorator,
+  ],
+} as Meta
+
+setupMocks()
+
+export const Primary = () => {
+  return <<%= componentName %> className="redux-component" />
+}

@@ -1,0 +1,8 @@
+// eslint-disable-next-line import/prefer-default-export
+export const getPrefixCls = (suffixCls: string, customizePrefixCls?: string) => {
+  if (customizePrefixCls) {
+    return `${customizePrefixCls}-${suffixCls}`
+  }
+
+  return `mstr-rc-<%= featureClass %>-${suffixCls}`
+}
