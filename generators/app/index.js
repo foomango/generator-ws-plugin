@@ -21,6 +21,7 @@ module.exports = class extends Generator {
         { name: 'GridView Component', value: 'gridViewComponent' },
         { name: 'Feature', value: 'feature' },
         { name: 'Storybook', value: 'storybook' },
+        { name: 'Entry', value: 'entry' },
       ]
 
       const filteredChoices = input.length

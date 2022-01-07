@@ -1,0 +1,22 @@
+import React from 'react'
+// eslint-disable-next-line import/no-extraneous-dependencies
+import type { Meta } from '@storybook/react'
+
+import <%= entryName %>Entry from '.'
+import { ReduxDecorator } from '../../mocks/decorators'
+import { setupMocks } from '../mocks/setup-mocks'
+
+export default {
+  title: '<%= featureName %>/<%= entryName %>Entry',
+  component: <%= entryName %>Entry,
+  decorators: [
+    (story: () => any) => <div style={{ height: 800 }}>{story()}</div>,
+    ReduxDecorator,
+  ],
+} as Meta
+
+const env = setupMocks().env
+
+export const Primary = () => {
+  return <<%= entryName %>Entry env={env} />
+}

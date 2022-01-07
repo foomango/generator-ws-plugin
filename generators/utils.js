@@ -12,6 +12,8 @@ const PLACEHOLDERS = [
   'parentReducerName',
   'parentReducerCamelName',
   'modelName',
+  'entryName',
+  'entryCamelName',
 ]
 
 function* walkSync(dir) {

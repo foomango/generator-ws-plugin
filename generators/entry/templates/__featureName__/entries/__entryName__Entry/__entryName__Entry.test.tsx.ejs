@@ -1,0 +1,32 @@
+import React from 'react'
+import { render, screen } from '@testing-library/react'
+import { Provider } from 'react-redux'
+
+import <%= entryName %>Entry from '.'
+import WebBrowserEnv from '../../../../env/WebBrowser'
+import { setupMocks } from '../mocks/setup-mocks'
+import { createStore } from '../../mocks/create-store'
+
+describe('<%= entryName %>Entry', () => {
+  let env: WebBrowserEnv
+  let store: any
+
+  const MockContainer = (props: any) => {
+    return (
+      <Provider store={store}>
+        <<%= entryName %>Entry {...props} />
+      </Provider>
+    )
+  }
+
+  beforeAll(() => {
+    env = setupMocks().env
+    store = createStore()
+  })
+
+  it('should render Todo', async () => {
+    render(<MockContainer env={env} />)
+    const todo = await screen.findByText(/todo/i)
+    expect(todo).toBeVisible()
+  })
+})

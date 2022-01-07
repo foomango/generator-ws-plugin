@@ -1,0 +1,17 @@
+import React from 'react'
+
+import { connector, PropsFromRedux } from './<%= featureCamelName %>EntryConnector'
+import { FeatureComponentProps } from '../../../migration'
+
+export const <%= entryName %>Entry: React.FC<
+  PropsFromRedux & FeatureComponentProps
+> = ({ updateUi, ui }) => {
+  window.console.log('ui:', ui)
+  React.useEffect(() => {
+    updateUi({ todo: 'foo' })
+  }, [])
+
+  return <div>Todo:</div>
+}
+
+export default connector(<%= entryName %>Entry)
