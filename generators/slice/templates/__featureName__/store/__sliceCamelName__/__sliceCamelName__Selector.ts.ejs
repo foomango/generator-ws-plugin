@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit'
 
-import { select<%= parentReducerName %> } from '../subscriptionDelivery/<%= parentReducerCamelName %>Selector'
+import { select<%= parentReducerName %> } from '../<%= featureCamelName %>/<%= parentReducerCamelName %>Selector'
 
 export const select<%= sliceName %> = createSelector(
   select<%= parentReducerName %>,
