@@ -14,8 +14,8 @@ module.exports = class extends Generator {
 
     const searchSubGenerators = (answers, input = '') => {
       const choices = [
-        { name: 'Component with Redux', value: 'reduxComponent' },
         { name: 'Simple Component', value: 'simpleComponent' },
+        { name: 'Component with Redux Connect', value: 'reduxComponent' },
         { name: 'Model', value: 'model' },
         { name: 'Slice', value: 'slice' },
         { name: 'GridView Component', value: 'gridViewComponent' },
