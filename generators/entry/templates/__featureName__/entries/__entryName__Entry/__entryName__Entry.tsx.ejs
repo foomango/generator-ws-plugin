@@ -1,17 +1,21 @@
 import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 
-import { connector, PropsFromRedux } from './<%= entryCamelName %>EntryConnector'
+import { updateUi } from '../../store/ui/uiSlice'
+import { selectUi } from '../../store/ui/uiSelector'
 import { FeatureComponentProps } from '../../../migration'
 
-export const <%= entryName %>Entry: React.FC<
-  PropsFromRedux & FeatureComponentProps
-> = ({ updateUi, ui }) => {
+export const <%= entryName %>Entry: React.FC<FeatureComponentProps> = () => {
+  const ui = useSelector(selectUi)
   window.console.log('ui:', ui)
+
+  const dispatch = useDispatch()
+
   React.useEffect(() => {
-    updateUi({ todo: 'foo' })
+    dispatch(updateUi({ todo: 'foo' }))
   }, [])
 
   return <div>Todo:</div>
 }
 
-export default connector(<%= entryName %>Entry)
+export default <%= entryName %>Entry
