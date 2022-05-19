@@ -1,6 +1,6 @@
 {
   "name": "generator-ws-plugin",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Yeoman generator generating a workstation plugin",
   "homepage": "https://github.com/foomango/generator-ws-plugin",
   "author": {

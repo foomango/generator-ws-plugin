@@ -37,7 +37,7 @@ module.exports = class extends Generator {
         name: 'subGenerator',
         message: 'What do you want to generate?',
         source: searchSubGenerators,
-        default: 'reduxComponent',
+        default: 'simpleComponent',
       },
     ]
 
